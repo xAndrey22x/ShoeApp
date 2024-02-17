@@ -1,0 +1,22 @@
+<div class="landing-page">
+    <div class="overlay">
+      <div class="content">
+        <h1>Welcome to our Sneakers Store</h1>
+        <p>Discover the latest trends in footwear.</p>
+        <a routerLink="/products" class="cta-button">Shop Now</a>
+  
+        <div class="admin-login">
+            <a (click)="redirectToAdminPage()" class="admin-button" [ngClass]="{'disabled': !checkCredentials()}">
+                Admin Portal
+            </a>
+          <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter your username">
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password">
+  
+        </div>
+      </div>
+    </div>
+    <div class="landing_bottom">
+      <p class="landing_bottom_p">@2024 Personal Project. All rights reserved</p>
+    </div>
+  </div>
+  

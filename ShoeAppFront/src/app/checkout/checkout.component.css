@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.products-title-container {
+  background: linear-gradient(to right, #1f2c42ce, #4285f4);
+  padding: 20px;
+  text-align: center;
+}
+
+.products-title {
+  font-size: 2em;
+  margin: 0;
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+}
+
+.some-ancestor-class .products-title-container .filter-form {
+  display: flex;
+  margin-top: -60px;
+  justify-content: flex-end;
+  margin-right: auto;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  margin-left: 50px;
+  margin-right: 200px;
+}
+
+.products-and-total-container {
+  display: flex;
+}
+
+.products-container {
+  flex: 1;
+  margin-right: 100px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.cart-item div {
+  flex: 1;
+}
+
+.total-container {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: -150px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+form {
+  width: 300px;
+  margin-top: 20px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,108 @@
+<div class="some-ancestor-class">
+    <button class="add-button" (click)="openAddShoeDialog()">Add Shoe</button>
+    <button class="check-orders-button" (click)="navigateToCheckOrders()">Check Orders</button>
+    <div class="products-title-container">
+      <h1 class="products-title">Explore Our Latest Products</h1>
+    </div>  
+  </div>
+    
+  <div class="products-page">
+    <div class="product-card" *ngFor="let shoe of filteredShoes">
+      <img [src]="'assets/' + shoe.imageUrl" alt="{{ shoe.model }}">
+      <div class="quantity-loc">{{ shoe.quantity }}</div>
+      <h2>{{ shoe.model }}</h2>
+      <p>{{ shoe.details }}</p>
+      <p>Size: {{ shoe.size }} | Color: {{ shoe.color }}</p>
+      <p>Price: ${{ shoe.price.toFixed(2) }}</p>
+      <div class="product-buttons">
+        <button class="edit-button" (click)="openEditShoeDialog(shoe, $event)">Edit</button>
+        <button class="delete-button" (click)="deleteProduct(shoe, $event)">Delete</button>
+      </div>
+      <div class="quantity-buttons">
+        <button class="increase-quantity" (click)="increaseQuantity(shoe, $event)"><mat-icon>add</mat-icon></button>
+        <button class="decrease-quantity" (click)="decreaseQuantity(shoe, $event)"><mat-icon>remove</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+    <ng-container *ngIf="isAddShoeDialogOpen">
+      <div class="shoe-dialog">
+        <form (submit)="addShoe()" class="shoe-form add-form">
+          <label for="model">Model:</label>
+          <input type="text" id="model" name="model" [(ngModel)]="newShoe.model" required>
+    
+          <label for="details">Details:</label>
+          <input type="text" id="details" name="details" [(ngModel)]="newShoe.details" required>
+    
+          <label for="size">Size:</label>
+          <input type="number" id="size" name="size" [(ngModel)]="newShoe.size" required>
+    
+          <label for="color">Color:</label>
+          <input type="text" id="color" name="color" [(ngModel)]="newShoe.color" required>
+    
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" [(ngModel)]="newShoe.price" required>
+    
+          <label for="imageUrl">Image URL:</label>
+          <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="newShoe.imageUrl" required>
+
+          <label for="imageUrl">Image URL2:</label>
+          <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="newShoe.imageUrl2" required>
+
+          <label for="imageUrl">Image URL3:</label>
+          <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="newShoe.imageUrl3" required>
+    
+          <button type="submit" [disabled]="!isFormValid()">Add</button>
+          <button type="button" (click)="closeAddShoeDialog()">Cancel</button>
+        </form>
+      </div>
+    </ng-container>
+
+<ng-container *ngIf="isEditShoeDialogOpen">
+  <div class="shoe-dialog">
+    <form (submit)="editProduct(editedShoe)" class="shoe-form edit-form">
+      <div class="form-group">
+        <label for="editedModel">Model:</label>
+        <input type="text" id="editedModel" name="editedModel" [(ngModel)]="editedShoe.model" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedDetails">Details:</label>
+        <input type="text" id="editedDetails" name="editedDetails" [(ngModel)]="editedShoe.details" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedSize">Size:</label>
+        <input type="number" id="editedSize" name="editedSize" [(ngModel)]="editedShoe.size" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedColor">Color:</label>
+        <input type="text" id="editedColor" name="editedColor" [(ngModel)]="editedShoe.color" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedPrice">Price:</label>
+        <input type="number" id="editedPrice" name="editedPrice" [(ngModel)]="editedShoe.price" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedImageUrl">Image URL:</label>
+        <input type="text" id="editedImageUrl" name="editedImageUrl" [(ngModel)]="editedShoe.imageUrl" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedImageUrl2">Image URL2:</label>
+        <input type="text" id="editedImageUrl2" name="editedImageUrl2" [(ngModel)]="editedShoe.imageUrl2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="editedImageUrl3">Image URL3:</label>
+        <input type="text" id="editedImageUrl3" name="editedImageUrl3" [(ngModel)]="editedShoe.imageUrl3" required>
+      </div>
+
+      <button type="submit">Save Changes</button>
+      <button type="button" (click)="closeEditShoeDialog()">Cancel</button>
+    </form>
+  </div>
+</ng-container>

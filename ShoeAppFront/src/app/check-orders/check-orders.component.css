@@ -1,0 +1,126 @@
+body, h1 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .some-ancestor-class {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .products-title-container {
+    background: linear-gradient(to right, #1f2c42ce, #4285f4);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .products-title {
+    font-size: 2em;
+    margin: 0;
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    border-bottom: none;
+  }
+
+
+  .orders-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .order-card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease; 
+  }
+  
+  .complete-order-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .complete-order-button:hover {
+    background-color: #0066cc;
+  }
+
+  .cancel-order-button {
+    position: absolute;
+    top: 50px;
+    right: 27px;
+    background-color: #f44242;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-order-button:hover {
+    background-color: #cc0000;
+  }
+  
+  .order-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .order-details p {
+    margin-bottom: -10px;
+  }
+  
+  .ordered-products {
+    margin-top: 15px;
+  }
+  
+  .product-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-details p {
+    margin-top: -10px;
+  }
+  
+  .product-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    object-fit: fill;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .order-details p,
+  .product-details p {
+    color: #555;
+  }
+  
+  .ordered-products ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: -15px;
+  }
+  
+  .ordered-products li {
+    margin-bottom: 10px;
+  }
+  

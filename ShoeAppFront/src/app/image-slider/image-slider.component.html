@@ -1,0 +1,15 @@
+<div class="slider">
+    <div class="nav-buttons">
+      <button mat-icon-button class="nav-button" (click)="prevImage()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button class="nav-button" (click)="nextImage()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+    <img [src]="data.images[currentIndex]" alt="Product Image" />
+    <button mat-icon-button class="close-button" (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  

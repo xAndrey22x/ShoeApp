@@ -1,0 +1,37 @@
+<div class="some-ancestor-class">
+    <div class="products-title-container">
+      <h1 class="products-title">All orders</h1>
+    </div>  
+  </div>
+<div class="orders-container">
+    <div *ngFor="let order of orders" class="order-card">
+      <div class="order-details">
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Name:</strong> {{ order.firstName }} {{ order.lastName }}</p>
+        <p><strong>Email:</strong> {{ order.email }}</p>
+        <p><strong>Phone Number:</strong> {{ order.phoneNumber }}</p>
+        <p><strong>Address:</strong> {{ order.address }}, {{ order.city }}, {{ order.country }} {{ order.postalCode }}</p>
+        <p><strong>Total Cost:</strong> ${{ order.totalCost.toFixed(2) }}</p>
+      </div>
+      
+      <div class="ordered-products">
+  <p><strong>Ordered Products:</strong></p>
+  <ul>
+    <li *ngFor="let shoeId of order.shoesId.split('|')">
+      <ng-container *ngIf="getShoeDetails(shoeId) as shoeDetails">
+        <div class="product-details">
+            <img [src]="'assets/' + shoeDetails.imageUrl" alt="{{ shoeDetails.model }}" class="product-image">
+          <div>
+            <p>{{ shoeDetails.model }} - {{ shoeDetails.details }}</p>
+            <p>Size: {{ shoeDetails.size }} - Color: {{ shoeDetails.color }}</p>
+            <p>Price: ${{ shoeDetails.price }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </li>
+  </ul>
+    </div>
+    <button class="complete-order-button" (click)="completeOrder(order.id)">Complete Order</button>
+    <button class="cancel-order-button" (click)="cancelOrder(order.id)">Cancel Order</button>
+    </div>
+</div>

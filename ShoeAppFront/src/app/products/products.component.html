@@ -1,0 +1,61 @@
+<div class="some-ancestor-class">
+  <div class="products-title-container">
+    <h1 class="products-title">Explore Our Latest Products</h1>
+    <form class="filter-form">
+      <select id="sizeFilter" [(ngModel)]="selectedSize" name="size">
+        <option value="">All Sizes</option>
+        <option *ngFor="let size of availableSizes" [value]="size">{{ size }}</option>
+      </select>
+
+      <select id="colorFilter" [(ngModel)]="selectedColor" name="color">
+        <option value="">All Colors</option>
+        <option *ngFor="let color of availableColors" [value]="color">{{ color }}</option>
+      </select>
+
+      <input id="modelSearch" [(ngModel)]="searchModel" name="model" placeholder="Enter model">
+      <button class="view-cart-btn" (click)="openCartPanel()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span matBadge="{{ cartItems.length }}" matBadgePosition="above after" matBadgeColor="warn"></span>
+      </button>
+    </form>
+  </div>  
+</div>
+  
+  <div class="products-page">
+    <div class="product-card" *ngFor="let shoe of filteredShoes" (click)="openImageSlider(shoe)">
+      <img [src]="'assets/' + shoe.imageUrl" alt="{{ shoe.model }}">
+      <h2>{{ shoe.model }}</h2>
+      <p>{{ shoe.details }}</p>
+      <p>Size: {{ shoe.size }} | Color: {{ shoe.color }}</p>
+      <p>Price: ${{ shoe.price.toFixed(2) }}</p>
+      <button class="add-to-cart-btn" (click)="addToCart(shoe, $event)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="cart-panel" [class.open]="isCartPanelOpen">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button (click)="closeCartPanel()">Close</button>
+    </div>
+    <div class="cart-content">
+      <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+        <img [src]="'assets/' + item.imageUrl" alt="{{ item.model }}">
+        <div>
+          <h3>{{ item.model }}</h3>
+          <h4>{{ item.details }}</h4>
+          <p>Size: {{ item.size }}</p>
+          <p>Color: {{item.color}}</p>
+          <p>Price: ${{ item.price.toFixed(2) }}</p>
+        </div>
+        <button class="remove-btn" (click)="removeItem(i)">X</button>
+      </div>
+      <div class="checkout-container">
+        <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+          <a routerLink="/checkout" class="checkout-btn" >Checkout</a>
+        </ng-container>
+        <ng-template #emptyCart>
+          <span class="disabled-checkout-btn">Checkout</span>
+        </ng-template>
+      </div>
+    </div>
+  </div>
